@@ -8,6 +8,8 @@ const Image = new Schema({
         title: String,
         data: String
     }
+},{
+    collection: 'images'
 });
 
 module.exports = mongoose.model('Image', Image);
