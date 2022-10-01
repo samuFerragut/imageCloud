@@ -9,12 +9,15 @@ const app = express();
 
 const { DB } = require('./config/DB');
 
+app.use(express.json({limit: '50mb'}));
+app.use(express.urlencoded({limit: '50mb'}));
+
 // Image route
 const imageRoutes = require('./routes/images');
 
 const mongoose = require('mongoose');
 mongoose.Promise = global.Promise;
-mongoose.connect (DB)
+mongoose.connect(DB, {useMongoClient : true})
     .then(() => console.log('db connected'))
     .catch(err => console.log(err));
 
@@ -27,7 +30,6 @@ app.use(bodyParser.json());
 
 // routes
 app.use('/images', imageRoutes);
-
 
 // ruta para los archivos staticos
 app.use(express.static(path.join(__dirname, 'public')));

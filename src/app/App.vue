@@ -3,8 +3,9 @@
         <div>
             <nav>                
                 <div class="nav-wrapper deep-purple darken-4">
+                    
                     <router-link :to="{name: 'DisplayImages'}" class="brand-logo center">
-                        Image cloud
+                        ImageCloud  <i class="material-icons">cloud</i>
                     </router-link>                
                 <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
                 <ul id="nav-mobile" class="right hide-on-med-and-down">

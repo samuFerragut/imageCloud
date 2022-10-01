@@ -18,12 +18,12 @@ router.get('/:id', (req, res, next) => {
 
 // GET images
 router.get('/', (req, res) => {
-    Image.find(function (err, images) {
+    Image.find(function (err, image) {
         if(err) {            
             res.status(500).send({message: 'Error en get de imagenes'})
         }
         else {
-            res.json(images);
+            res.json(image);
         }
     })
 });
@@ -34,7 +34,7 @@ router.post('/',(req, res) => {
     const image = new Image(req.body);
     image.save()
     .then(image => {
-        res.status(201).json({message: ' La images ha sido guardada'})
+        res.status(201).json({message: ' La imagen ha sido guardada'})
     })
     .catch(err => {
         res.status(400).send({message: 'Se ha producido un error al guardar la imagen '})
@@ -42,7 +42,7 @@ router.post('/',(req, res) => {
 });
 
 // PUT images
-router.put('/:id', (req, res, next) => {
+router.put('/:id', (req, res) => {
     Image.findById(req.params.id, function (err, image){
         if(!image) {
             return res.status(404).send('No se ha encontrado la imagen');
