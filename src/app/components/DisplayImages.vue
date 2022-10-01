@@ -15,7 +15,7 @@
           <td class="col s4">
             <img class="responsive-img" :src="img.image" alt="" />
           </td>
-          <td class="col s3">{{ img.title }}</td>
+          <td class="col s3 ">{{ img.title }}</td>
           <td class="col s3">{{ img.description }}</td>
           <div class="row col s2">
             <router-link
